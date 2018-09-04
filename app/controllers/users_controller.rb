@@ -20,10 +20,4 @@ class UsersController < ApplicationController
     client = User.__elasticsearch__.client
     client.get({index: 'users', id: id})
   end
-
-  def create_html(records)
-    return records.map do |record|
-      "<div>#{record["_source"]["fullname"]}</div><div>#{record["_source"]["location"]}"
-    end
-  end
 end
